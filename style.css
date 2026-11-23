@@ -12,7 +12,7 @@ h1{font-size:68px}
 h2{font-size:52px;margin-bottom:24px}
 h3{font-size:26px}
 .hl{color:var(--hl)}
-.hl:after{content:"_"}
+
 p.lead{font-size:20px;color:var(--muted);max-width:560px;margin-top:28px}
 /* nav */
 nav{position:sticky;top:0;z-index:10;background:rgba(244,244,241,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
