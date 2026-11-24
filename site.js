@@ -7,5 +7,10 @@ addEventListener('DOMContentLoaded',()=>{
   document.querySelectorAll('.rv').forEach(el=>io.observe(el));
   document.querySelectorAll('[data-yt]').forEach(b=>b.addEventListener('click',()=>{
     const q=new URLSearchParams({autoplay:1,rel:0});if(b.dataset.start)q.set('start',b.dataset.start);if(b.dataset.end)q.set('end',b.dataset.end);
-    b.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+b.dataset.yt+'?'+q+'" title="Does your software know its purpose?" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>';b.style.cursor='default';b.classList.add('playing')},{once:true}));
+    const m=document.createElement('div');m.className='modal';m.setAttribute('role','dialog');m.setAttribute('aria-modal','true');
+    m.innerHTML='<div class="modal-box"><button class="modal-x" aria-label="Close video">×</button><iframe src="https://www.youtube-nocookie.com/embed/'+b.dataset.yt+'?'+q+'" title="Does your software know its purpose?" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div>';
+    const close=()=>{m.remove();document.body.style.overflow='';removeEventListener('keydown',esc);b.focus()};
+    const esc=e=>{if(e.key==='Escape')close()};
+    m.addEventListener('click',e=>{if(e.target===m||e.target.classList.contains('modal-x'))close()});
+    addEventListener('keydown',esc);document.body.style.overflow='hidden';document.body.appendChild(m);m.querySelector('.modal-x').focus()}));
 });

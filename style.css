@@ -99,8 +99,12 @@ footer a{text-decoration:none;margin-left:20px}
 .video:before{content:"";position:absolute}
 .video[data-yt]{justify-content:flex-end;align-items:flex-start;padding:22px}
 
-.video.playing{padding:0;display:block}
 .ticks{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;color:var(--muted)}
 .ticks li{position:relative;padding-left:20px}
 .ticks li:before{content:"";position:absolute;left:0;top:.55em;width:8px;height:8px;background:var(--accent)}
 .ink .ticks{color:#cdd4cc}
+.modal{position:fixed;inset:0;z-index:100;background:rgba(18,22,20,.88);display:flex;align-items:center;justify-content:center;padding:24px}
+.modal-box{position:relative;width:min(1200px,100%,calc((100vh - 120px)*16/9));aspect-ratio:16/9;background:#000;outline:1px solid var(--accent)}
+.modal-box iframe{width:100%;height:100%;border:0;display:block}
+.modal-x{position:absolute;top:-48px;right:0;width:40px;height:40px;border:1px solid #fff;background:transparent;color:#fff;font:500 24px/1 "JetBrains Mono",monospace;cursor:pointer}
+.modal-x:hover{background:var(--accent);border-color:var(--accent);color:var(--ink)}
