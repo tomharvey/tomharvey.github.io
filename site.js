@@ -9,8 +9,9 @@ addEventListener('DOMContentLoaded',()=>{
     const q=new URLSearchParams({autoplay:1,rel:0});if(b.dataset.start)q.set('start',b.dataset.start);if(b.dataset.end)q.set('end',b.dataset.end);
     const m=document.createElement('div');m.className='modal';m.setAttribute('role','dialog');m.setAttribute('aria-modal','true');
     m.innerHTML='<div class="modal-box"><button class="modal-x" aria-label="Close video">×</button><iframe src="https://www.youtube-nocookie.com/embed/'+b.dataset.yt+'?'+q+'" title="Does your software know its purpose?" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div>';
-    const close=()=>{m.remove();document.body.style.overflow='';removeEventListener('keydown',esc);b.focus()};
+    const x=()=>m.querySelector('.modal-x');const keep=()=>setTimeout(()=>{if(document.activeElement&&document.activeElement.tagName==='IFRAME')x().focus()},0);
+    const close=()=>{m.remove();document.body.style.overflow='';removeEventListener('keydown',esc);removeEventListener('blur',keep);b.focus()};
     const esc=e=>{if(e.key==='Escape')close()};
     m.addEventListener('click',e=>{if(e.target===m||e.target.classList.contains('modal-x'))close()});
-    addEventListener('keydown',esc);document.body.style.overflow='hidden';document.body.appendChild(m);m.querySelector('.modal-x').focus()}));
+    addEventListener('keydown',esc);addEventListener('blur',keep);document.body.style.overflow='hidden';document.body.appendChild(m);m.querySelector('.modal-x').focus()}));
 });
