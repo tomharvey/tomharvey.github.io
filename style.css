@@ -100,3 +100,7 @@ footer a{text-decoration:none;margin-left:20px}
 .video[data-yt]{justify-content:flex-end;align-items:flex-start;padding:22px}
 
 .video.playing{padding:0;display:block}
+.ticks{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;color:var(--muted)}
+.ticks li{position:relative;padding-left:20px}
+.ticks li:before{content:"";position:absolute;left:0;top:.55em;width:8px;height:8px;background:var(--accent)}
+.ink .ticks{color:#cdd4cc}
