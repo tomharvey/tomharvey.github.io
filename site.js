@@ -7,5 +7,5 @@ addEventListener('DOMContentLoaded',()=>{
   document.querySelectorAll('.rv').forEach(el=>io.observe(el));
   document.querySelectorAll('[data-yt]').forEach(b=>b.addEventListener('click',()=>{
     const q=new URLSearchParams({autoplay:1,rel:0});if(b.dataset.start)q.set('start',b.dataset.start);if(b.dataset.end)q.set('end',b.dataset.end);
-    b.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+b.dataset.yt+'?'+q+'" title="Does your software know its purpose?" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>';b.style.cursor='default'},{once:true}));
+    b.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+b.dataset.yt+'?'+q+'" title="Does your software know its purpose?" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>';b.style.cursor='default';b.classList.add('playing')},{once:true}));
 });

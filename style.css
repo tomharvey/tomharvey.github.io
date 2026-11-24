@@ -99,3 +99,4 @@ footer a{text-decoration:none;margin-left:20px}
 .video:before{content:"";position:absolute}
 .video[data-yt]{justify-content:flex-end;align-items:flex-start;padding:22px}
 
+.video.playing{padding:0;display:block}
